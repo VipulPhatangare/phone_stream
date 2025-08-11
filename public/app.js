@@ -7,8 +7,9 @@ document.getElementById('startBtn').onclick = startStreaming;
 document.getElementById('stopBtn').onclick = stopStreaming;
 
 async function startStreaming() {
-  // Connect WebSocket to server
-  ws = new WebSocket(`ws://${location.host}`);
+  // Pick correct WebSocket protocol
+  const protocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+  ws = new WebSocket(`${protocol}//${location.host}`);
   ws.binaryType = 'arraybuffer';
 
   ws.onopen = () => {
@@ -55,5 +56,3 @@ function stopStreaming() {
     video.srcObject.getTracks().forEach(track => track.stop());
   }
 }
-
-

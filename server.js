@@ -23,9 +23,6 @@ wss.on('connection', (ws) => {
 
   ws.on('message', (msg, isBinary) => {
     if (isBinary) {
-      console.log(`📷 Received a binary frame (${msg.length} bytes)`);
-
-      // Broadcast binary to all other clients
       wss.clients.forEach((client) => {
         if (client !== ws && client.readyState === WebSocket.OPEN) {
           client.send(msg, { binary: true });

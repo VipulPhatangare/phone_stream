@@ -279,6 +279,42 @@ video {
   .info-value {
     font-size: 20px;
   }
+
+  .socket-info {
+    font-size: 12px;
+  }
+}
+
+/* Socket Info */
+.socket-info {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 16px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.socket-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.socket-id {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  color: var(--primary-color);
+  word-break: break-all;
+  padding: 8px;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 6px;
+  border: 1px solid rgba(99, 102, 241, 0.2);
 }
 
 /* Landscape Mode for Mobile */

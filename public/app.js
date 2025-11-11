@@ -14,6 +14,7 @@ const statusText = status.querySelector('.status-text');
 const videoOverlay = document.getElementById('videoOverlay');
 const fpsValue = document.getElementById('fpsValue');
 const frameCountEl = document.getElementById('frameCount');
+const socketIdEl = document.getElementById('socketId');
 
 startBtn.onclick = startStreaming;
 stopBtn.onclick = stopStreaming;
@@ -45,6 +46,14 @@ async function startStreaming() {
 
   ws.onopen = () => {
     console.log('Connected to WebSocket');
+    console.log('WebSocket URL:', ws.url);
+    console.log('WebSocket extensions:', ws.extensions);
+    
+    // Display socket information
+    const socketInfo = `${ws.url} (${ws.readyState})`;
+    socketIdEl.textContent = socketInfo;
+    console.log('Socket ID:', socketInfo);
+    
     updateStatus('Connected', 'connected');
     startCamera();
   };
@@ -131,4 +140,5 @@ function stopStreaming() {
   stopBtn.disabled = true;
   updateStatus('Ready', '');
   fpsValue.textContent = '0';
+  socketIdEl.textContent = 'Not connected';
 }

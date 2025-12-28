@@ -111,7 +111,7 @@ async function startCamera() {
           });
         }
       }, 'image/jpeg', 0.5); // quality 0.5 for speed
-    }, 200); // every 200ms (~5 FPS)
+    }, 1000); // every 1000ms (1 FPS)
   } catch (err) {
     console.error('Camera error:', err);
     alert('Unable to access camera. Please grant camera permissions.');

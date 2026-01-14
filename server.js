@@ -42,6 +42,10 @@ wss.on('connection', (ws) => {
   });
 });
 
+app.get('/api/activate', (req, res) => {
+  res.json({ message: 'Hello from the server!' });
+});
+
 server.listen(3000, () => {
   console.log('🚀 Server running on http://localhost:3000');
 });
